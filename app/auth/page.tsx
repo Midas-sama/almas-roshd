@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import CountUp from "react-countup";
 
-export default function AuthPage() {
+export default function AuthPage()  {
 
   const [mode, setMode] = useState<
     "login" | "register"
@@ -19,7 +19,7 @@ export default function AuthPage() {
     useState(false);
 
   return (
-    <main className="relative flex min-h-screen overflow-hidden bg-black text-white">
+    <main className="relative flex min-h-screen overflow-hidden bg-black text-white" dir="ltl">
 
       {/* Aurora */}
       <div className="absolute inset-0 -z-10">
@@ -31,7 +31,7 @@ export default function AuthPage() {
         <div className="floating-fast absolute bottom-[-10%] left-[30%] h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-3xl"></div>
 
         {/* Grid */}
-        <div
+        <div dir="ltl"
           className="absolute inset-0 opacity-[0.05]"
           style={{
             backgroundImage:
@@ -43,9 +43,9 @@ export default function AuthPage() {
       </div>
 
       {/* LEFT SIDE */}
-      <section className="relative flex w-full items-center justify-center px-6 py-12 lg:w-1/2">
+      <section className="relative flex w-full items-center justify-center px-6 py-12 lg:w-1/2" dir="ltl">
 
-        <motion.div
+        <motion.div dir="ltl"
           initial={{
             opacity: 0,
             y: 30,
@@ -76,16 +76,17 @@ export default function AuthPage() {
           </div>
 
           {/* Tabs */}
-          <div className="relative mb-8 flex rounded-2xl bg-white/5 p-1">
+          <div
+            className="relative mb-8 flex rounded-2xl bg-white/5 p-1"
+            dir="ltr"
+          >
 
+            {/* Active Tab */}
             <motion.div
               layoutId="tab"
-              className="absolute top-1 h-[calc(100%-8px)] w-[calc(50%-4px)] rounded-xl bg-white"
+              className="absolute left-1 top-1 h-[calc(100%-8px)] w-[calc(50%-4px)] rounded-xl bg-white"
               animate={{
-                x:
-                  mode === "login"
-                    ? 0
-                    : "100%",
+                x: mode === "login" ? 0 : "100%",
               }}
               transition={{
                 type: "spring",
@@ -94,10 +95,9 @@ export default function AuthPage() {
               }}
             />
 
+            {/* Login */}
             <button
-              onClick={() =>
-                setMode("login")
-              }
+              onClick={() => setMode("login")}
               className={`relative z-10 flex-1 rounded-xl py-3 text-sm font-medium transition ${
                 mode === "login"
                   ? "text-black"
@@ -107,10 +107,9 @@ export default function AuthPage() {
               ورود
             </button>
 
+            {/* Register */}
             <button
-              onClick={() =>
-                setMode("register")
-              }
+              onClick={() => setMode("register")}
               className={`relative z-10 flex-1 rounded-xl py-3 text-sm font-medium transition ${
                 mode === "register"
                   ? "text-black"
@@ -121,6 +120,8 @@ export default function AuthPage() {
             </button>
 
           </div>
+
+
 
           {/* Google */}
           <button className="flex w-full items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/5 py-4 transition hover:bg-white/10">

@@ -3,11 +3,15 @@
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { FaChartLine, FaVideo, FaBookOpen, FaBrain, FaUsers, FaLaptopCode, } from "react-icons/fa";
+import Navbar from "./components/Navbar";
+import ParticleBackground from "./components/ParticleBackground";
 
 export default function HomePage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-black text-white">
 
+    <main className="relative min-h-screen overflow-hidden text-white">
+    <Navbar />
       {/* Aurora Background */}
       <div className="absolute inset-0 -z-10">
 
@@ -27,46 +31,6 @@ export default function HomePage() {
           }}
         />
       </div>
-
-      {/* Navbar */}
-      <header className="sticky top-0 z-50 border-b border-white/10 backdrop-blur-xl bg-white/5">
-
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-
-          <motion.h1
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-2xl font-black tracking-tight"
-          >
-            EduVerse
-          </motion.h1>
-
-          <nav className="hidden gap-8 text-sm text-gray-300 md:flex">
-            <a className="transition hover:text-white" href="#">
-              دوره‌ها
-            </a>
-
-            <a className="transition hover:text-white" href="#">
-              مدرس‌ها
-            </a>
-
-            <a className="transition hover:text-white" href="#">
-              آزمون‌ها
-            </a>
-
-            <a className="transition hover:text-white" href="#">
-              بلاگ
-            </a>
-          </nav>
-
-          <button className="rounded-2xl border border-white/10 bg-white/5 px-5 py-2 text-sm backdrop-blur-xl transition hover:bg-white/10">
-          <Link href="/auth">
-            ورود
-            </Link>
-          </button>
-
-        </div>
-      </header>
 
       {/* Hero */}
       <section className="relative flex flex-col items-center justify-center px-6 py-36 text-center">
@@ -119,6 +83,182 @@ export default function HomePage() {
         </motion.div>
 
       </section>
+
+      
+
+      {/* FEATURES SECTION */}
+
+      <section className="relative px-6 py-32">
+
+        {/* Background Glow */}
+        <div className="absolute left-1/2 top-0 h-[400px] w-[400px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl"></div>
+
+        {/* Heading */}
+        <div className="relative mx-auto max-w-3xl text-center">
+
+          <div className="mb-4 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-5 py-2 text-sm text-cyan-300 backdrop-blur-xl">
+            امکانات پلتفرم
+          </div>
+
+          <h2 className="text-5xl font-black leading-tight tracking-tight text-white">
+
+            همه چیز برای
+            <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+              {" "}
+              یادگیری حرفه‌ای
+            </span>
+
+          </h2>
+
+          <p className="mt-6 text-lg leading-8 text-gray-400">
+
+            یک پلتفرم مدرن برای آموزش، آزمون، تحلیل عملکرد
+            و مدیریت کامل مسیر یادگیری دانش‌آموزها.
+
+          </p>
+
+        </div>
+
+        {/* Cards */}
+        <div className="relative mx-auto mt-20 grid max-w-7xl gap-8 md:grid-cols-2 xl:grid-cols-3">
+
+          {/* Card */}
+          <div className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition duration-500 hover:-translate-y-2 hover:border-cyan-400/30 hover:bg-white/10">
+
+            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-400/10 text-2xl text-cyan-400">
+
+              <FaChartLine />
+
+            </div>
+
+            <h3 className="text-2xl font-bold text-white">
+              تحلیل پیشرفت
+            </h3>
+
+            <p className="mt-4 leading-7 text-gray-400">
+
+              مشاهده روند یادگیری، عملکرد آزمون‌ها
+              و میزان پیشرفت دانش‌آموزها.
+
+            </p>
+
+          </div>
+
+          {/* Card */}
+          <div className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition duration-500 hover:-translate-y-2 hover:border-purple-400/30 hover:bg-white/10">
+
+            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-purple-400/10 text-2xl text-purple-400">
+
+              <FaVideo />
+
+            </div>
+
+            <h3 className="text-2xl font-bold text-white">
+              ویدیوهای آموزشی
+            </h3>
+
+            <p className="mt-4 leading-7 text-gray-400">
+
+              دسترسی آسان به دوره‌ها و ویدیوهای آموزشی
+              با کیفیت بالا و طراحی مدرن.
+
+            </p>
+
+          </div>
+
+          {/* Card */}
+          <div className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition duration-500 hover:-translate-y-2 hover:border-blue-400/30 hover:bg-white/10">
+
+            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-400/10 text-2xl text-blue-400">
+
+              <FaBookOpen />
+
+            </div>
+
+            <h3 className="text-2xl font-bold text-white">
+              آزمون آنلاین
+            </h3>
+
+            <p className="mt-4 leading-7 text-gray-400">
+
+              برگزاری آزمون‌های آنلاین با تحلیل نتایج
+              و بررسی نقاط ضعف و قوت.
+
+            </p>
+
+          </div>
+
+          {/* Card */}
+          <div className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition duration-500 hover:-translate-y-2 hover:border-pink-400/30 hover:bg-white/10">
+
+            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-pink-400/10 text-2xl text-pink-400">
+
+              <FaBrain />
+
+            </div>
+
+            <h3 className="text-2xl font-bold text-white">
+              یادگیری هوشمند
+            </h3>
+
+            <p className="mt-4 leading-7 text-gray-400">
+
+              طراحی مسیر آموزشی برای یادگیری سریع‌تر
+              و هدفمندتر دانش‌آموزها.
+
+            </p>
+
+          </div>
+
+          {/* Card */}
+          <div className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition duration-500 hover:-translate-y-2 hover:border-green-400/30 hover:bg-white/10">
+
+            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-green-400/10 text-2xl text-green-400">
+
+              <FaUsers />
+
+            </div>
+
+            <h3 className="text-2xl font-bold text-white">
+              ارتباط با مدرس
+            </h3>
+
+            <p className="mt-4 leading-7 text-gray-400">
+
+              تعامل مستقیم دانش‌آموزها با مدرس‌ها
+              و دریافت پشتیبانی آموزشی.
+
+            </p>
+
+          </div>
+
+          {/* Card */}
+          <div className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition duration-500 hover:-translate-y-2 hover:border-orange-400/30 hover:bg-white/10">
+
+            <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-400/10 text-2xl text-orange-400">
+
+              <FaLaptopCode />
+
+            </div>
+
+            <h3 className="text-2xl font-bold text-white">
+              پلتفرم مدرن
+            </h3>
+
+            <p className="mt-4 leading-7 text-gray-400">
+
+              طراحی شده با تکنولوژی‌های مدرن برای
+              سرعت، امنیت و تجربه کاربری بهتر.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
       {/* Statistics */}
       <section className="mx-auto max-w-7xl px-6 pb-24">
 
